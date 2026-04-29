@@ -90,7 +90,7 @@ const LoadingScreen: React.FC<{ onFinished: () => void }> = ({ onFinished }) => 
         playsInline
         className="absolute inset-0 w-full h-full object-cover opacity-60"
       >
-        <source src="./video.mp4" type="video/mp4" />
+        <source src="/video.mp4" type="video/mp4" />
       </video>
       <div className="absolute inset-0 bg-gradient-to-t from-black via-transparent to-black/40"></div>
       <div className="relative z-60 flex flex-col items-center">
@@ -146,7 +146,8 @@ const App: React.FC = () => {
   useEffect(() => {
     const checkBackend = async () => {
       try {
-        const resp = await fetch(`http://${window.location.hostname}:3002/api/status`);
+        const API_HOST = (import.meta as any).env?.VITE_API_URL || `http://${window.location.hostname}:5023`;
+        const resp = await fetch(`${API_HOST}/api/status`);
         if (resp.ok) setBackendStatus('ONLINE');
         else setBackendStatus('OFFLINE');
       } catch (e) {

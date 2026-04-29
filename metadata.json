@@ -1,0 +1,8 @@
+{
+  "name": "MDT Bate-Ponto & Central de Operações",
+  "description": "Uma interface administrativa futurista estilo MDT para gestão de pontos, patrulhas e relatórios operacionais com estética FiveM.",
+  "requestFramePermissions": [
+    "camera"
+  ],
+  "majorCapabilities": []
+}
